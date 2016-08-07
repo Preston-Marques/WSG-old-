@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}User Registration{% endblock %}
+{% block head %}User Registration{% endblock %}
+{% block content %}
+    <form method="post" action=".">{% csrf_token %}
+        <div class="row">
+            <div class="six columns">
+                <label for="id_username">Username</label>
+                <input class="u-full-width" id="id_username" name="username" type="text" placeholder="Username" required=True>
+            </div>
+        </div>
+        <div class="row">
+            <div class="six columns">
+                <label for="id_first_name">First Name</label>
+                <input class="u-full-width" id="id_first_name" name="first_name" type="text" required pattern="[a-zA-Z][a-zA-Z .'-]{1,24}" placeholder="John" required=True>
+            </div>
+        <div class="six columns">
+                <label for="id_last_name">Last Name</label>
+                <input class="u-full-width" id="id_last_name" name="last_name" required pattern="[a-zA-Z][a-zA-Z .'-]{1,24}" type="text" placeholder="Doe" required=True>
+            </div>
+         </div>
+        <div class="row">
+        <div class="six columns">
+                <label for="id_date_of_birth">Date Of Birth</label>
+                <input class="u-full-width" id="id_date_of_birth" name="date_of_birth" type="date" required=True>
+            </div>
+        <div class="six columns">
+                <label for="id_phone_number">Phone number</label>
+                <input class="u-full-width" id="id_phone_number" name="phone_number" required pattern="[0-9 +]{1,14}" type="text" placeholder="+91xxxxxxxxxx" required=True>
+            </div>
+         </div>
+        <div class="row">
+        <div class="six columns">
+                <label for="id_email">Email-id</label>
+                <input class="u-full-width" id="id_email" name="email" type="email" placeholder="abc@xyz.com" required=True>
+            </div>
+         </div>
+           <div class="row">
+        <div class="six columns">
+                <label for="id_password1">Password1</label>
+                <input class="u-full-width" id="id_password1" name="password1" type="password" placeholder="********" required=True>
+            </div>
+        <div class="six columns">
+                <label for="id_password2">Password2</label>
+                <input class="u-full-width" id="id_password2" name="password2" type="password" placeholder="********" required=True>
+            </div>
+         </div>
+        <input class="u-pull-right" type="submit" value="Register" />
+    </form>
+{% endblock %}

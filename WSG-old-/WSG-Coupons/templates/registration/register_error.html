@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form action="{{ action }" method="POST">
+{% csrf_token %}
+{ % if form.non_field_errors %}
+    <div id="{{ field.auto_id }}">
+        {% for error in form.non_field_errors %}
+            <div>{{ error }}</div>
+        {% endfor %}
+    </div>
+{% endif %}
+
+{% for field in form %}
+    <div id="{{ field.auto_id }}">
+        {{ field.help_text }}
+            <div>
+                {{ field.label_tag }}
+            </div>
+            <div id="{{ field.auto_id }}_errors">
+                {{ field.errors }}
+            </div>
+    </div>
+{ % endfor %}
+    <input class="u-pull-right" type="submit" value="Register" />
+</form>
+
